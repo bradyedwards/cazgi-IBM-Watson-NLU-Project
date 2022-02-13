@@ -62,7 +62,7 @@ app.get("/url/emotion", (req, res) => {
             return res.send(analysisResults.result.keywords[0].emotion, null, 2);
         })
         .catch(err => {
-            return res.send("Could not do desired operation " + err);
+            return res.status(500).send({score: -1, label: "Error (" + err.body + ") processing command"}, null, 2);
         });
 });
 
@@ -88,7 +88,7 @@ app.get("/url/sentiment", (req, res) => {
             return res.send(analysisResults.result.keywords[0].sentiment, null, 2);
         })
         .catch(err => {
-            return res.send("Could not do desired operation " + err);
+            return res.status(500).send({score: -1, label: "Error (" + err.body + ") processing command"}, null, 2);
         });
 });
 
@@ -114,7 +114,7 @@ app.get("/text/emotion", (req, res) => {
             return res.send(analysisResults.result.keywords[0].emotion, null, 2);
         })
         .catch(err => {
-            return res.send("Could not do desired operation " + err);
+            return res.status(500).send({score: -1, label: "Error (" + err.body + ") processing command"}, null, 2);
         });
 });
 
@@ -139,7 +139,7 @@ app.get("/text/sentiment", (req, res) => {
             return res.send(analysisResults.result.keywords[0].sentiment, null, 2);
         })
         .catch(err => {
-            return res.send("Could not do desired operation " + err);
+            return res.status(500).send({score: -1, label: "Error (" + err.body + ") processing command"}, null, 2);
         });
 });
 
